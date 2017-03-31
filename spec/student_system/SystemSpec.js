@@ -6,12 +6,7 @@ describe('system', function () {
   let system;
 
   beforeEach(function () {
-    const readline = require('readline');
-    const rl = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout
-    });
-    system = new System(rl);
+    system = new System();
   });
 
   it('should return student info when given an input string of student', function () {
