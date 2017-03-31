@@ -48,7 +48,7 @@ describe('system', function () {
     expectClass.addStudentAndUpdateScores(student);
     system.consoleState = 'ADD_STUDENT';
     const msg = system.parseInput(input);
-    expect(msg).toEqual('请输入命令:\n1.添加学生\n2.生成成绩单\n3.退出');
+    expect(msg).toEqual('添加学生成功');
     expect(system.classes).toEqual([expectClass]);
     expect(system.consoleState).toEqual('COMMAND');
   });
@@ -132,7 +132,7 @@ Kobe|90|80|80|90|85|340
     system.consoleState = 'ADD_STUDENT';
     const msg = system.parseInput('Melo,8,han,1,math:90,chinese:80,english:80,program:90');
     const expectStudent = new Student('Melo', '8', 'han', '1', new Subject(90, 80, 80, 90));
-    expect(msg).toEqual('请输入命令:\n1.添加学生\n2.生成成绩单\n3.退出');
+    expect(msg).toEqual('添加学生成功');
     expect(system.classes[0].students[0]).toEqual(expectStudent);
   });
 
@@ -147,10 +147,7 @@ Melo|90|80|80|90|85|340
 ==================
 全班总成绩平均分:340
 全班总成绩中位数:340
-请输入命令:
-1.添加学生
-2.生成成绩单
-3.退出`;
+`;
     expect(msg).toEqual(expectStr);
     expect(system.consoleState).toEqual('COMMAND');
   });
@@ -172,6 +169,7 @@ describe('function test', function () {
     WELCOME: '欢迎来到学生成绩控制台记录系统  Powered By Melo Gao',
     COMMAND: '请输入命令:\n1.添加学生\n2.生成成绩单\n3.退出',
     ADD_STUDENT: '请输入学生信息:(姓名,学号,民族,班级,数学:成绩,语文:成绩,英语:成绩,编程:成绩)',
+    ADD_SUCCESS: '添加学生成功',
     QUERY_SCORE: '请输入要打印的学生学号:(学号,学号...)',
     GOODBYE: 'see you',
     ERROR_COMMAND: '指令错误! ',
@@ -184,11 +182,11 @@ describe('function test', function () {
     expect(system.consoleState).toEqual(STATUS.COMMAND);
     expect(system.parseInput(COMMAND.INPUT_STUDENT)).toEqual(RETURN_MSG.ADD_STUDENT);
     expect(system.consoleState).toEqual(STATUS.ADD_STUDENT);
-    expect(system.parseInput('m,1,han,1,math:1,chinese:1,english:1,program:1')).toEqual(RETURN_MSG.COMMAND);
+    expect(system.parseInput('m,1,han,1,math:1,chinese:1,english:1,program:1')).toEqual(RETURN_MSG.ADD_SUCCESS);
     expect(system.consoleState).toEqual(STATUS.COMMAND);
     expect(system.parseInput(COMMAND.INPUT_STUDENT_NUMBER)).toEqual(RETURN_MSG.QUERY_SCORE);
     expect(system.consoleState).toEqual(STATUS.QUERY_SCORE);
-    expect(system.parseInput('1')).toEqual('成绩单\n姓名|数学|语文|英语|编程|平均分|总分\n==================\nm|1|1|1|1|1|4\n==================\n全班总成绩平均分:4\n全班总成绩中位数:4\n' + RETURN_MSG.COMMAND);
+    expect(system.parseInput('1')).toEqual('成绩单\n姓名|数学|语文|英语|编程|平均分|总分\n==================\nm|1|1|1|1|1|4\n==================\n全班总成绩平均分:4\n全班总成绩中位数:4\n');
     expect(system.consoleState).toEqual(STATUS.COMMAND);
     expect(system.parseInput(COMMAND.CLOSE)).toEqual(RETURN_MSG.GOODBYE);
     expect(system.consoleState).toEqual(STATUS.CLOSED);
