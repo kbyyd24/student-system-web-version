@@ -2,7 +2,7 @@ describe('system', function () {
   const System = require('../../lib/student_system/StudentManageSystem');
   const Student = require('../../lib/student_system/Student');
   const Subject = require('../../lib/student_system/Subject');
-  const Class = require('../../lib/student_system/Class');
+  const Class = require('../../lib/student_system/Clazz');
   let system;
 
   beforeEach(function () {
