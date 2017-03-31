@@ -32,17 +32,15 @@ describe('system', function () {
 
   it('should set console state to input student after input command 1', function () {
     const input = '1';
-    spyOn(console, 'log');
-    system.parseInput(input);
-    expect(console.log).toHaveBeenCalledWith('请输入学生信息:(姓名,学号,民族,班级,数学:成绩,语文:成绩,英语:成绩,编程:成绩)');
+    const msg = system.parseInput(input);
+    expect(msg).toEqual('请输入学生信息:(姓名,学号,民族,班级,数学:成绩,语文:成绩,英语:成绩,编程:成绩)');
     expect(system.consoleState).toEqual('ADD_STUDENT');
   });
 
   it('should set console state to query scores after input command 2', function () {
     const input = '2';
-    spyOn(console, 'log');
-    system.parseInput(input);
-    expect(console.log).toHaveBeenCalledWith('请输入要打印的学生学号:(学号,学号...)');
+    const msg = system.parseInput(input);
+    expect(msg).toEqual('请输入要打印的学生学号:(学号,学号...)');
     expect(system.consoleState).toEqual('QUERY_SCORE');
   });
 
@@ -54,9 +52,8 @@ describe('system', function () {
     const expectClass = new Class(classNumber);
     expectClass.addStudentAndUpdateScores(student);
     system.consoleState = 'ADD_STUDENT';
-    spyOn(console, 'log');
-    system.parseInput(input);
-    expect(console.log).toHaveBeenCalledWith('请输入命令:\n1.添加学生\n2.生成成绩单\n3.退出');
+    const msg = system.parseInput(input);
+    expect(msg).toEqual('请输入命令:\n1.添加学生\n2.生成成绩单\n3.退出');
     expect(system.classes).toEqual([expectClass]);
     expect(system.consoleState).toEqual('COMMAND');
   });
@@ -138,26 +135,28 @@ Kobe|90|80|80|90|85|340
 
   it('should add student and set console state to command when input student', function () {
     system.consoleState = 'ADD_STUDENT';
-    spyOn(console, 'log');
-    system.parseInput('Melo,8,han,1,math:90,chinese:80,english:80,program:90');
+    const msg = system.parseInput('Melo,8,han,1,math:90,chinese:80,english:80,program:90');
     const expectStudent = new Student('Melo', '8', 'han', '1', new Subject(90, 80, 80, 90));
-    expect(console.log).toHaveBeenCalledWith('请输入命令:\n1.添加学生\n2.生成成绩单\n3.退出');
+    expect(msg).toEqual('请输入命令:\n1.添加学生\n2.生成成绩单\n3.退出');
     expect(system.classes[0].students[0]).toEqual(expectStudent);
   });
 
   it('should console log score and set console state to command when input student number', function () {
     system.consoleState = 'QUERY_SCORE';
     system.updateClasses(new Student('Melo', '8', 'han', '1', new Subject(90, 80, 80, 90)));
-    spyOn(console, 'log');
-    system.parseInput('8');
+    const msg = system.parseInput('8');
     const expectStr = `成绩单
 姓名|数学|语文|英语|编程|平均分|总分
 ==================
 Melo|90|80|80|90|85|340
 ==================
 全班总成绩平均分:340
-全班总成绩中位数:340\n`;
-    expect(console.log).toHaveBeenCalledWith(expectStr);
+全班总成绩中位数:340
+请输入命令:
+1.添加学生
+2.生成成绩单
+3.退出`;
+    expect(msg).toEqual(expectStr);
     expect(system.consoleState).toEqual('COMMAND');
   });
 });
