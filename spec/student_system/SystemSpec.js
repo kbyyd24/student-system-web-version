@@ -155,3 +155,42 @@ Melo|90|80|80|90|85|340
     expect(system.consoleState).toEqual('COMMAND');
   });
 });
+
+describe('function test', function () {
+  const STATUS = {
+    COMMAND: 'COMMAND',
+    ADD_STUDENT: 'ADD_STUDENT',
+    QUERY_SCORE: 'QUERY_SCORE',
+    CLOSED: 'CLOSED'
+  };
+  const COMMAND = {
+    INPUT_STUDENT: '1',
+    INPUT_STUDENT_NUMBER: '2',
+    CLOSE: '3'
+  };
+  const RETURN_MSG = {
+    WELCOME: '欢迎来到学生成绩控制台记录系统  Powered By Melo Gao',
+    COMMAND: '请输入命令:\n1.添加学生\n2.生成成绩单\n3.退出',
+    ADD_STUDENT: '请输入学生信息:(姓名,学号,民族,班级,数学:成绩,语文:成绩,英语:成绩,编程:成绩)',
+    QUERY_SCORE: '请输入要打印的学生学号:(学号,学号...)',
+    GOODBYE: 'see you',
+    ERROR_COMMAND: '指令错误! ',
+    ERROR_STUDENT_STR: '请按正确的格式输入! ',
+    EMPTY: ''
+  };
+  const StudentManageSystem = require('../../lib/student_system/StudentManageSystem');
+  it('test all functions', function () {
+    let system = new StudentManageSystem();
+    expect(system.consoleState).toEqual(STATUS.COMMAND);
+    expect(system.parseInput(COMMAND.INPUT_STUDENT)).toEqual(RETURN_MSG.ADD_STUDENT);
+    expect(system.consoleState).toEqual(STATUS.ADD_STUDENT);
+    expect(system.parseInput('m,1,han,1,math:1,chinese:1,english:1,program:1')).toEqual(RETURN_MSG.COMMAND);
+    expect(system.consoleState).toEqual(STATUS.COMMAND);
+    expect(system.parseInput(COMMAND.INPUT_STUDENT_NUMBER)).toEqual(RETURN_MSG.QUERY_SCORE);
+    expect(system.consoleState).toEqual(STATUS.QUERY_SCORE);
+    expect(system.parseInput('1')).toEqual('成绩单\n姓名|数学|语文|英语|编程|平均分|总分\n==================\nm|1|1|1|1|1|4\n==================\n全班总成绩平均分:4\n全班总成绩中位数:4\n' + RETURN_MSG.COMMAND);
+    expect(system.consoleState).toEqual(STATUS.COMMAND);
+    expect(system.parseInput(COMMAND.CLOSE)).toEqual(RETURN_MSG.GOODBYE);
+    expect(system.consoleState).toEqual(STATUS.CLOSED);
+  });
+});
