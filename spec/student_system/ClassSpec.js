@@ -1,5 +1,5 @@
 describe('class', function () {
-  const Class = require('../../lib/student_system/Class');
+  const Class = require('../../lib/student_system/Clazz');
   const Student = require('../../lib/student_system/Student');
   const Subject = require('../../lib/student_system/Subject');
   it('should add student success when given a student', function () {
