@@ -98,7 +98,7 @@ describe('system', function () {
 Melo|90|80|80|90|85|340
 ==================
 全班总成绩平均分:340
-全班总成绩中位数:340\n`;
+全班总成绩中位数:340`;
     expect(system.transScoreFormToString([inputClass])).toEqual(expectStr);
   });
 
@@ -124,7 +124,7 @@ Melo|90|80|80|90|85|340
 Kobe|90|80|80|90|85|340
 ==================
 全班总成绩平均分:340
-全班总成绩中位数:340\n`;
+全班总成绩中位数:340`;
     expect(system.transScoreFormToString([inputClass1, inputClass2])).toEqual(expectStr);
   });
 
@@ -146,8 +146,7 @@ Kobe|90|80|80|90|85|340
 Melo|90|80|80|90|85|340
 ==================
 全班总成绩平均分:340
-全班总成绩中位数:340
-`;
+全班总成绩中位数:340`;
     expect(msg).toEqual(expectStr);
     expect(system.consoleState).toEqual('COMMAND');
   });
@@ -186,7 +185,7 @@ describe('function test', function () {
     expect(system.consoleState).toEqual(STATUS.COMMAND);
     expect(system.parseInput(COMMAND.INPUT_STUDENT_NUMBER)).toEqual(RETURN_MSG.QUERY_SCORE);
     expect(system.consoleState).toEqual(STATUS.QUERY_SCORE);
-    expect(system.parseInput('1')).toEqual('成绩单\n姓名|数学|语文|英语|编程|平均分|总分\n==================\nm|1|1|1|1|1|4\n==================\n全班总成绩平均分:4\n全班总成绩中位数:4\n');
+    expect(system.parseInput('1')).toEqual('成绩单\n姓名|数学|语文|英语|编程|平均分|总分\n==================\nm|1|1|1|1|1|4\n==================\n全班总成绩平均分:4\n全班总成绩中位数:4');
     expect(system.consoleState).toEqual(STATUS.COMMAND);
     expect(system.parseInput(COMMAND.CLOSE)).toEqual(RETURN_MSG.GOODBYE);
     expect(system.consoleState).toEqual(STATUS.CLOSED);
