@@ -99,7 +99,7 @@ Melo|90|80|80|90|85|340
 ==================
 全班总成绩平均分:340
 全班总成绩中位数:340`;
-    expect(system.transScoreFormToString([inputClass])).toEqual(expectStr);
+    expect(system.formatScoreForm([inputClass])).toEqual(expectStr);
   });
 
   it('should return score form string when given two classes', function () {
@@ -125,7 +125,7 @@ Kobe|90|80|80|90|85|340
 ==================
 全班总成绩平均分:340
 全班总成绩中位数:340`;
-    expect(system.transScoreFormToString([inputClass1, inputClass2])).toEqual(expectStr);
+    expect(system.formatScoreForm([inputClass1, inputClass2])).toEqual(expectStr);
   });
 
   it('should add student and set console state to command when input student', function () {
