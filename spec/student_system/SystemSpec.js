@@ -194,7 +194,7 @@ xdescribe('function test', function () {
 
 describe('test for commanders', function () {
   const System = require('../../lib/student_system/StudentManageSystem');
-  const {STATUS, COMMAND, RETURN_MSG} = require('../../lib/student_system/DataSource');
+  const {STATUS, COMMAND, RETURN_MSG} = require('../../lib/student_system/StaticSource');
   let system;
   beforeEach(function () {
     system = new System();
