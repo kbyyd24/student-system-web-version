@@ -152,7 +152,7 @@ Melo|90|80|80|90|85|340
   });
 });
 
-xdescribe('function test', function () {
+describe('function test', function () {
   const STATUS = {
     COMMAND: 'COMMAND',
     ADD_STUDENT: 'ADD_STUDENT',
