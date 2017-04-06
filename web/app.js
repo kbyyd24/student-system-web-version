@@ -1,5 +1,7 @@
 'use strict';
 
+const {RETURN_MSG} = require('../lib/student_system/StaticSource');
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
@@ -17,4 +19,6 @@ app.listen(3000, () => {
   console.log('System Started...')
 });
 
-
+app.get('/', (request, response) => {
+  response.render('index', {msg: RETURN_MSG.WELCOME})
+})
