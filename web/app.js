@@ -5,8 +5,10 @@ const {RETURN_MSG} = require('../lib/student_system/StaticSource');
 const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
+const StudentService = require('../lib/student_system/StudentService');
 
 let app = express();
+let service = new StudentService();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,9 +30,12 @@ app.get('/student/new', (request, response) => {
 });
 
 app.post('/student/new', (request, response) => {
-  console.log((request.body));
-  //todo use redirect
-  response.render('index', {msg: RETURN_MSG.ADD_SUCCESS});
+  const student = service.saveStudent(request.body);
+  if (student) {
+    response.render('index', {msg: RETURN_MSG.ADD_SUCCESS});
+  } else {
+    response.render('addStudent', {msg: RETURN_MSG.ERROR_STUDENT_STR})
+  }
 });
 
 app.get('/query/score', (request, response) => {
