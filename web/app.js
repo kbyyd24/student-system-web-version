@@ -41,3 +41,7 @@ app.get('/score/form', (request, response) => {
   //todo use student service to get form
   response.render('showScoreForm', {scoreForm: `I'am score form<br>I get query string ${request.query.stuNumbers}`});
 });
+
+app.get('/goodbye', (request, response) => {
+  response.render('goodbye');
+});
