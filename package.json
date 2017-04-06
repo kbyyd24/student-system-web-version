@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jasmine"
+    "test": "jasmine",
+    "start": "node ./web/app.js",
+    "start-watch": "nodemon ./web/app.js"
   },
   "keywords": [],
   "author": "",
