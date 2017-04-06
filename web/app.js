@@ -26,7 +26,7 @@ app.get('/', (request, response) => {
 });
 
 app.get('/student/new', (request, response) => {
-  response.render('addStudent');
+  response.render('addStudent', {msg: ''});
 });
 
 app.post('/student/new', (request, response) => {
