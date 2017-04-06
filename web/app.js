@@ -26,3 +26,9 @@ app.get('/', (request, response) => {
 app.get('/student/new', (request, response) => {
   response.render('addStudent');
 });
+
+app.post('/student/new', (request, response) => {
+  console.log((request.body));
+  //todo use redirect
+  response.render('index', {msg: RETURN_MSG.ADD_SUCCESS});
+});
