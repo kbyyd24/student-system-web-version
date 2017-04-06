@@ -2,6 +2,20 @@
 <html>
 <head>
     <title>Homepage | 学生管理系统</title>
+    <script src="./js/ejs.min.js"></script>
 </head>
-<body></body>
+<body>
+<% if (msg !== undefined) { %>
+<%= msg%>
+<br>
+<% } %>
+<div>请选择操作</div>
+<div>
+    <ul>
+        <li><a href="/student/new">添加学生信息</a></li>
+        <li><a href="/query/score">查询成绩单</a></li>
+        <li><a href="/goodbye">离开系统</a></li>
+    </ul>
+</div>
+</body>
 </html>
