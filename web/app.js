@@ -1,6 +1,6 @@
 'use strict';
 
-const {RETURN_MSG} = require('../lib/student_system/StaticSource');
+const RETURN_MSG = require('../lib/student_system/StaticSource');
 
 const express = require('express');
 const bodyParser = require('body-parser');
