@@ -32,3 +32,7 @@ app.post('/student/new', (request, response) => {
   //todo use redirect
   response.render('index', {msg: RETURN_MSG.ADD_SUCCESS});
 });
+
+app.get('/query/score', (request, response) => {
+  response.render('queryScore');
+});
