@@ -36,3 +36,8 @@ app.post('/student/new', (request, response) => {
 app.get('/query/score', (request, response) => {
   response.render('queryScore');
 });
+
+app.get('/score/form', (request, response) => {
+  //todo use student service to get form
+  response.render('showScoreForm', {scoreForm: "I'am score form"});
+});
