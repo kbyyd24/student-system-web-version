@@ -12,3 +12,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/web/public'));
 app.use('views', './web/public/');
 app.set('view engine', 'ejs');
+
+app.listen(3000, () => {
+  console.log('System Started...')
+});
+
+
