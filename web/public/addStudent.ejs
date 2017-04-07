@@ -10,31 +10,31 @@
 </div>
 <div>请输入学生信息</div>
 <div>
-        <div>姓名: <input name="name" type="text"></div>
-        <div>学号: <input name="stuNumber" type="text"></div>
-        <div>民族: <input name="nation" type="text"></div>
-        <div>班级: <input name="classNumber" type="text"></div>
-        <div>数学成绩: <input name="math" type="number"></div>
-        <div>语文成绩: <input name="chinese" type="number"></div>
-        <div>英语成绩: <input name="english" type="number"></div>
-        <div>编程成绩: <input name="program" type="number"></div>
-        <div><button onclick="addStudent()">添加</button></div>
+    <div>姓名: <input name="name" type="text"></div>
+    <div>学号: <input name="stuNumber" type="text"></div>
+    <div>民族: <input name="nation" type="text"></div>
+    <div>班级: <input name="classNumber" type="text"></div>
+    <div>数学成绩: <input name="math" type="number"></div>
+    <div>语文成绩: <input name="chinese" type="number"></div>
+    <div>英语成绩: <input name="english" type="number"></div>
+    <div>编程成绩: <input name="program" type="number"></div>
+    <div><button onclick="addStudent()">添加</button></div>
 </div>
 <div><a href="/">back to home</a></div>
 <script>
-    const newStudentUrl = '/student/new';
-    const addStudent = () => {
-      const studentForm = [...$('input')]
-        .map(element => {
-          let item = {};
-          item[element.name] = element.value;
-          return item;
-        })
-        .reduce((acc, next) => Object.assign(acc, next), {});
-      $.post(newStudentUrl, studentForm, (data) => {
-        alert(data.msg);
-      });
-    }
+  const newStudentUrl = '/student/new';
+  const addStudent = () => {
+    const studentForm = [...$('input')]
+      .map(element => {
+        let item = {};
+        item[element.name] = element.value;
+        return item;
+      })
+      .reduce((acc, next) => Object.assign(acc, next), {});
+    $.post(newStudentUrl, studentForm, (data) => {
+      alert(data.msg);
+    });
+  }
 </script>
 </body>
 </html>
