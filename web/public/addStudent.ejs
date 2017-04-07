@@ -23,22 +23,6 @@
     <div><button onclick="addStudent()">添加</button></div>
 </div>
 <div><a href="/">back to home</a></div>
-<script>
-  const newStudentUrl = '/student/new';
-  const addStudent = () => {
-    const studentForm = [...$('input')]
-      .map(element => {
-        let item = {};
-        let value = element.value;
-        item[element.name] = value;
-        element.value = '';
-        return item;
-      })
-      .reduce((acc, next) => Object.assign(acc, next), {});
-    $.post(newStudentUrl, studentForm, (data) => {
-      $('#msg span:first-child').text(data.msg);
-    });
-  }
-</script>
+<script src="/js/addStudent.js"></script>
 </body>
 </html>
