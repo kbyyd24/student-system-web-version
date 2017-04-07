@@ -8,13 +8,34 @@
 
 <%- include('./nav.ejs');%>
 
-<div>请输入要查询的学号: (学号,学号...)</div>
-<div>
-    <form action="/score/form" method="get">
-        <div>学号: <input name="stuNumbers" type="text"></div>
-        <div><input type="submit" value="查询"></div>
-    </form>
+<div class="container">
+    <div><input type="text"><button>搜索</button></div>
+    <div>
+        <div>班级: <span></span></div>
+        <div>
+            <table class="table">
+                <tr>
+                    <th>姓名</th>
+                    <th>数学成绩</th>
+                    <th>语文成绩</th>
+                    <th>英语成绩</th>
+                    <th>编程成绩</th>
+                    <th>平均分</th>
+                    <th>总分</th>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <table class="table">
+                <tr>
+                    <th>班级总分平均分</th>
+                    <th>班级总分中位数</th>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>
+
 <div><a href="/">back to home</a></div>
 </body>
 </html>
