@@ -22,11 +22,11 @@ app.listen(3000, () => {
 });
 
 app.get('/', (request, response) => {
-  response.render('index', {msg: RETURN_MSG.WELCOME})
+  response.render('index')
 });
 
 app.get('/student/new', (request, response) => {
-  response.render('addStudent', {msg: ''});
+  response.render('addStudent');
 });
 
 app.post('/student/new', (request, response) => {
