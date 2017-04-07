@@ -45,3 +45,7 @@ app.get('/score/form', (request, response) => {
 app.get('/goodbye', (request, response) => {
   response.render('goodbye');
 });
+
+app.get('/classes', (request, response) => {
+  response.json(service.classes);
+});
