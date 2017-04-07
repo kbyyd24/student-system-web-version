@@ -28,7 +28,9 @@
     const studentForm = [...$('input')]
       .map(element => {
         let item = {};
-        item[element.name] = element.value;
+        let value = element.value;
+        item[element.name] = value;
+        element.value = '';
         return item;
       })
       .reduce((acc, next) => Object.assign(acc, next), {});
