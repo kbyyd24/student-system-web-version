@@ -12,6 +12,6 @@ const addStudent = () => {
     })
     .reduce((acc, next) => Object.assign(acc, next), {});
   $.post(newStudentUrl, studentForm, (data) => {
-    $('#msg span:first-child').text(data.msg);
+    $('#msg').find('span:first-child').text(data.msg);
   });
 }
