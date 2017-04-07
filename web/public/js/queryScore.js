@@ -49,9 +49,15 @@ let classHTML = function (classes) {
   }).join('');
 };
 
+const noClassHTML = `<h3 class="text-center">没有学生信息</h3>`;
+
 let printTable = function (classes) {
-  const outputHTML = classHTML(classes);
-  $('#classes').html(outputHTML);
+  if (classes.length !== 0) {
+    const outputHTML = classHTML(classes);
+    $('#classes').html(outputHTML);
+  } else {
+    $('#classes').html(noClassHTML);
+  }
 };
 
 let loadClasses = function () {
