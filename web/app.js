@@ -31,11 +31,7 @@ app.get('/student/new', (request, response) => {
 
 app.post('/student/new', (request, response) => {
   const student = service.saveStudent(request.body);
-  if (student) {
-    response.render('index', {msg: RETURN_MSG.ADD_SUCCESS});
-  } else {
-    response.render('addStudent', {msg: RETURN_MSG.ERROR_STUDENT_STR})
-  }
+  response.json( student ? {msg: RETURN_MSG.ADD_SUCCESS} : {msg: RETURN_MSG.ERROR_STUDENT_STR});
 });
 
 app.get('/query/score', (request, response) => {
