@@ -34,11 +34,11 @@ app.post('/student/new', (request, response) => {
   response.json( student ? {msg: RETURN_MSG.ADD_SUCCESS} : {msg: RETURN_MSG.ERROR_STUDENT_STR});
 });
 
-app.get('/query/score', (request, response) => {
+app.get('/score', (request, response) => {
   response.render('queryScore');
 });
 
-app.get('/score/form', (request, response) => {
+app.get('/score/filter', (request, response) => {
   response.json(service.queryScores(request.query.stuNumbers));
 });
 

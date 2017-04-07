@@ -77,6 +77,6 @@ let loadClasses = function () {
 loadClasses();
 
 const search = () => {
-  const query = `/score/form?stuNumbers=${$('#stuNumbers').val()}`;
+  const query = `/score/filter?stuNumbers=${$('#stuNumbers').val()}`;
   $.get(query, (data) => printTable(data));
 }
