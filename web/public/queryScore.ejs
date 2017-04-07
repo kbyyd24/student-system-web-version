@@ -2,8 +2,12 @@
 <html>
 <head>
     <title>Query Score | 学生管理系统</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
 <body>
+
+<%- include('./nav.ejs');%>
+
 <div>请输入要查询的学号: (学号,学号...)</div>
 <div>
     <form action="/score/form" method="get">
