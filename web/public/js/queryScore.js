@@ -19,7 +19,9 @@ let studentHTML =  students => {
 let classHTML = function (classes) {
   return classes.map(clazz => {
     return `
-<div>班级: <span>${clazz.classNumber}</span></div>
+<div class="panel panel-success">
+<div class="panel-heading">班级: <span>${clazz.classNumber}</span></div>
+<div class="panel-body">
 <div>
   <table class="table">
     <tr>
@@ -45,7 +47,7 @@ let classHTML = function (classes) {
       <td>${clazz.median}</td>
     </tr>
   </table>
-</div>`;
+</div></div></div>`;
   }).join('');
 };
 
