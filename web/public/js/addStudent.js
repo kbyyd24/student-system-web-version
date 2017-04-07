@@ -1,7 +1,7 @@
 'use strict';
 
-const newStudentUrl = '/student/new';
 const addStudent = () => {
+  const newStudentUrl = '/student/new';
   const studentForm = [...$('input')]
     .map(element => {
       let item = {};
