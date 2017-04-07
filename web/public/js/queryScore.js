@@ -5,6 +5,8 @@ let studentHTML =  students => {
     return `
 <tr>
 <td>${student.name}</td>
+<td>${student.stuNumber}</td>
+<td>${student.nation}</td>
 <td>${student.subject.math}</td>
 <td>${student.subject.chinese}</td>
 <td>${student.subject.english}</td>
@@ -26,6 +28,8 @@ let classHTML = function (classes) {
   <table class="table">
     <tr>
       <th>姓名</th>
+      <th>学号</th>
+      <th>民族</th>
       <th>数学成绩</th>
       <th>语文成绩</th>
       <th>英语成绩</th>
