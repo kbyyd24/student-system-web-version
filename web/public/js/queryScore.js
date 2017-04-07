@@ -49,13 +49,22 @@ let classHTML = function (classes) {
   }).join('');
 };
 
-let loadClasses = function (url) {
-  $.get(url, (classes) => {
-    const outputHTML = classHTML(classes);
-    $('#classes').html(outputHTML);
+let printTable = function (classes) {
+  const outputHTML = classHTML(classes);
+  $('#classes').html(outputHTML);
+};
+
+let loadClasses = function () {
+  const allClassesUrl = '/classes';
+  $.get(allClassesUrl, (classes) => {
+    printTable(classes);
   });
 };
 
-const allClassesUrl = '/classes';
 
-loadClasses(allClassesUrl);
+loadClasses();
+
+const search = () => {
+  const query = `/score/form?stuNumbers=${$('#stuNumbers').val()}`;
+  $.get(query, (data) => printTable(data));
+}
