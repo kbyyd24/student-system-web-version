@@ -20,7 +20,7 @@ const formatStudents = students => {
   }).join('');
 };
 
-$('#classes').load(allClassesUrl, (classes) => {
+$.get(allClassesUrl, (classes) => {
   const outputHTML = classes.map(clazz => {
     return `
 <div>班级: <span>${clazz.classNumber}</span></div>
