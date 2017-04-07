@@ -2,19 +2,21 @@
 <html>
 <head>
     <title>Homepage | 学生管理系统</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
 <body>
-<% if (msg !== undefined) { %>
-<%= msg%>
-<br>
-<% } %>
-<div>请选择操作</div>
-<div>
-    <ul>
-        <li><a href="/student/new">添加学生信息</a></li>
-        <li><a href="/query/score">查询成绩单</a></li>
-        <li><a href="/goodbye">离开系统</a></li>
-    </ul>
-</div>
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header"><a href="/" class="navbar-brand">学生管理系统</a></div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/student/new">添加学生信息</a></li>
+                <li><a href="/query/score">查询成绩单</a></li>
+                <li><a href="/goodbye">离开系统</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
 </body>
 </html>
