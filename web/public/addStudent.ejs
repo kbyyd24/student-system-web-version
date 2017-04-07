@@ -18,6 +18,7 @@
     <div>语文成绩: <input name="chinese" type="number"></div>
     <div>英语成绩: <input name="english" type="number"></div>
     <div>编程成绩: <input name="program" type="number"></div>
+    <div id="msg"><span></span></div>
     <div><button onclick="addStudent()">添加</button></div>
 </div>
 <div><a href="/">back to home</a></div>
@@ -32,7 +33,7 @@
       })
       .reduce((acc, next) => Object.assign(acc, next), {});
     $.post(newStudentUrl, studentForm, (data) => {
-      alert(data.msg);
+      $('#msg span:first-child').text(data.msg);
     });
   }
 </script>
