@@ -39,7 +39,7 @@ app.get('/query/score', (request, response) => {
 });
 
 app.get('/score/form', (request, response) => {
-  response.render('showScoreForm', {scoreForm: service.queryScores(request.query.stuNumbers).split('\n').join('<br>')});
+  response.json(service.queryScores(request.query.stuNumbers));
 });
 
 app.get('/goodbye', (request, response) => {
