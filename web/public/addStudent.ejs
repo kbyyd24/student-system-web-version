@@ -13,18 +13,45 @@
 
     <h2>请输入学生信息</h2>
     <div>
-        <div>姓名: <input name="name" type="text"></div>
-        <div>学号: <input name="stuNumber" type="text"></div>
-        <div>民族: <input name="nation" type="text"></div>
-        <div>班级: <input name="classNumber" type="text"></div>
-        <div>数学成绩: <input name="math" type="number"></div>
-        <div>语文成绩: <input name="chinese" type="number"></div>
-        <div>英语成绩: <input name="english" type="number"></div>
-        <div>编程成绩: <input name="program" type="number"></div>
+        <div class="input-group">
+            <span class="input-group-addon">姓名: </span>
+            <input class="form-control" name="name" type="text">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">学号: </span>
+            <input class="form-control" name="stuNumber" type="text">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">民族: </span>
+            <input class="form-control" name="nation" type="text">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">班级: </span>
+            <input type="text" name="classNumber" class="form-control">
+        </div>
+
+        <div class="input-group">
+            <span class="input-group-addon">数学成绩: </span>
+            <input name="math" type="number" max="100" min="0" class="form-control">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">语文成绩: </span>
+            <input name="chinese" type="number" max="100" min="0" class="form-control">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">英语成绩: </span>
+            <input name="english" type="number" max="100" min="0" class="form-control">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">编程成绩: </span>
+            <input name="english" type="number" max="100" min="0" class="form-control">
+        </div>
         <div id="msg"><span></span></div>
-        <div><button onclick="addStudent()">添加</button></div>
+        <div>
+            <button class="btn btn-success" onclick="addStudent()">添加</button>
+            <a href="/"><button class="btn btn-primary">返回主页</button></a>
+        </div>
     </div>
-    <div><a href="/">back to home</a></div>
 </div>
 <script src="/js/addStudent.js"></script>
 </body>
