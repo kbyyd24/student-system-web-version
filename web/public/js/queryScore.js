@@ -1,10 +1,6 @@
 'use strict';
 
-// import $ from 'jquery.min';
-
-const allClassesUrl = '/classes';
-
-const formatStudents = students => {
+let studentHTML =  students => {
   return students.map(student => {
     return `
 <tr>
@@ -16,12 +12,12 @@ const formatStudents = students => {
 <td>${student.subject.average}</td>
 <td>${student.subject.total}</td>
 </tr>
-    `;
+`;
   }).join('');
 };
 
-$.get(allClassesUrl, (classes) => {
-  const outputHTML = classes.map(clazz => {
+let classHTML = function (classes) {
+  return classes.map(clazz => {
     return `
 <div>班级: <span>${clazz.classNumber}</span></div>
 <div>
@@ -35,7 +31,7 @@ $.get(allClassesUrl, (classes) => {
       <th>平均分</th>
       <th>总分</th>
     </tr>
-    ${formatStudents(clazz.students)}
+    ${studentHTML(clazz.students)}
   </table>
 </div>
 <div>
@@ -51,5 +47,15 @@ $.get(allClassesUrl, (classes) => {
   </table>
 </div>`;
   }).join('');
-  $('#classes').html(outputHTML);
-});
+};
+
+let loadClasses = function (url) {
+  $.get(url, (classes) => {
+    const outputHTML = classHTML(classes);
+    $('#classes').html(outputHTML);
+  });
+};
+
+const allClassesUrl = '/classes';
+
+loadClasses(allClassesUrl);
