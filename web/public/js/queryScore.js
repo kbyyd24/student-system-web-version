@@ -13,8 +13,8 @@ const formatStudents = students => {
 <td>${student.subject.chinese}</td>
 <td>${student.subject.english}</td>
 <td>${student.subject.program}</td>
-<td>${student.subject.calAverage()}</td>
-<td>${student.subject.calTotal()}</td>
+<td>${student.subject.average}</td>
+<td>${student.subject.total}</td>
 </tr>
     `;
   }).join('');
